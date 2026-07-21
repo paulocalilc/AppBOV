@@ -11,23 +11,23 @@ namespace AppBOV.Application.Services
         private readonly LogService _log = new LogService();
 
         //Constantes com os dados do banco de dados
-        public const string CONSTANTE_HOST_DB = "SQLPW90DB07,1447";
-        public const string CONSTANTE_LOGIN_DB = "DP_PLANEMP";
-        public const string CONSTANTE_PASSWORD_DB = "QAZwsx@IN2019";
-        public const string CONSTANTE_NAME_DB = "DB_PLANEMP";
-        public const string CONSTANTE_NAME_SCHEMA = "dbo";
-        public const string CONSTANTE_TABELA_ARQUIVOS = "tbl_perm_automacao_bov_arquivos_bov";
-        public const string CONSTANTE_TABELA_INFO_BOV = "tbl_perm_automacao_bov_informacoes_bov";
-        public const string CONSTANTE_TABELA_RELATORIOS = "tbl_perm_automacao_bov_relatorios_batch";
-        public const string CONSTANTE_TABELA_ADMIN = "tbl_perm_automacao_bov_user_admin";
-        public const string CONSTANTE_TABELA_CABECALHO = "tbl_perm_automacao_controle_cabecalho";
-        public const string CONSTANTE_TABELA_ALERTA = "tbl_perm_automacao_alertas";
-        public const string CONSTANTE_TABELA_ALTERACOES = "tbl_perm_automacao_alteracoes_cabecalho";
+        public const string CONSTANTE_HOST_DB = "HOST_DO_BD";
+        public const string CONSTANTE_LOGIN_DB = "USUARIO_BD";
+        public const string CONSTANTE_PASSWORD_DB = "SENHA_DO_BD";
+        public const string CONSTANTE_NAME_DB = "NOME_DO_BD";
+        public const string CONSTANTE_NAME_SCHEMA = "SCHEMA_DO_BD";
+        public const string CONSTANTE_TABELA_ARQUIVOS = "TABELA_DOS_ARQUIVOS_A_PROCESSAR";
+        public const string CONSTANTE_TABELA_INFO_BOV = "TABELA_DE_INFOS_DO_PORTAL";
+        public const string CONSTANTE_TABELA_RELATORIOS = "TABELA_DE_INFOS_DOS_RELATORIOS";
+        public const string CONSTANTE_TABELA_ADMIN = "TABELA_DOS_USUARIOS_ADMIN";
+        public const string CONSTANTE_TABELA_CABECALHO = "TABELA_DOS_CABECALHOS_DOS_ARQUIVOS";
+        public const string CONSTANTE_TABELA_ALERTA = "TABELA_DOS_ALERTAS_DO_PORTAL";
+        public const string CONSTANTE_TABELA_ALTERACOES = "TABELA_COM_AS_ALTERACOES_DE_CABECALHOS";
 
         //Constantes de diretorios de rede
-        public const string CONSTANTE_DIR_LOCAL = @"\\naspc01\Empresarial_Info$\002-Conhecimento_Mercado\05_BASES\17_Automacao_BOV\";
-        public const string CONSTANTE_DIR_REDE = @"\\naspc01\Empresarial_Info$\002-Conhecimento_Mercado\05_BASES\17_Automacao_BOV\";
-        public const string CONSTANTE_IMG_FILTRO_GR_UNID = "20191009_1546.png";
+        public const string CONSTANTE_DIR_LOCAL = @"\\PASTA_DA_REDE\PSTA_DOS_ARQUIVOS_TEMP\";
+        public const string CONSTANTE_DIR_REDE = @"\\PASTA_DA_REDE\PSTA_DOS_ARQUIVOS_TEMP\";
+        public const string CONSTANTE_IMG_FILTRO_GR_UNID = "IMAGEM.png";
         public static string dirLocal = string.Empty;
         public static string dirRemoto = string.Empty;
         public static string dirDestino = string.Empty;
@@ -278,7 +278,7 @@ namespace AppBOV.Application.Services
             private static readonly string BaseDir = AppDomain.CurrentDomain.BaseDirectory;
             public static string DriverPath => BaseDir;
             public static string BinaryPath => Path.Combine(BaseDir, "chrome-win64", "chrome.exe");
-            public static string ProxyPacUrl => "http://proxy.telemar:8350/web.pac";
+            public static string ProxyPacUrl => "http://proxy.company.local/proxy.pac";
         }
 
 
