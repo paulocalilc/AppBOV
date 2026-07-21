@@ -10,14 +10,14 @@ namespace AppBOV.Aplication.Services
 
         public void Enviar(string assunto, string corpo, List<string> destinatarios)
         {
-            var smtp = new SmtpClient("relayinterno.telemar")
+            var smtp = new SmtpClient("HOST_DO_SERVIDOR_DE_EMAIL_SMTP")
             {
                 Port = 25
             };
 
             var mail = new MailMessage
             {
-                From = new MailAddress("PP-INTELIGENCIADENEGOCIOB2B@oi.net.br"),
+                From = new MailAddress("EMAIL@EMAIL.COM"),
                 Subject = assunto,
                 Body = corpo,
                 IsBodyHtml = true
@@ -51,7 +51,7 @@ namespace AppBOV.Aplication.Services
 
             // Introdução
             sb.AppendLine("Oi,<br>");
-            sb.AppendLine("Segue relatório diário de exportação da BOV.<br><br>");
+            sb.AppendLine("Segue relatório diário de exportação.<br><br>");
 
             sb.AppendLine($"<b>Período consultado:</b> {config.DataInicioExtrairBov} a {config.DataFimExtrairBov}<br><br>");
 
@@ -60,10 +60,10 @@ namespace AppBOV.Aplication.Services
             // Tabela
             sb.AppendLine("<table>");
             sb.AppendLine("<tr style='background-color:#29b4b9'>");
-            sb.AppendLine("<td><b>BOV</b></td>");
+            sb.AppendLine("<td><b>RELATORIO</b></td>");
             sb.AppendLine("<td><b>Nome</b></td>");
             sb.AppendLine("<td><b>Última Data</b></td>");
-            sb.AppendLine("<td><b>Status BOV</b></td>");
+            sb.AppendLine("<td><b>Status RELATÓRIO</b></td>");
             sb.AppendLine("</tr>");
 
             foreach (var item in dados)
@@ -80,7 +80,7 @@ namespace AppBOV.Aplication.Services
 
             // Rodapé
             sb.AppendLine("<br><hr>");
-            sb.AppendLine("<b>Relacionamento com Clientes Oi Soluções</b><br>");
+            sb.AppendLine("<b>MINHA DIRETORIA E GERENCIA</b><br>");
 
             sb.AppendLine("<i>Esse email foi encaminhado automaticamente pelo sistema</i>");
 
