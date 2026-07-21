@@ -9,10 +9,7 @@ public interface IBovRepository
 
     bool ExecutarBulkInsert(string arquivo, string tabela, string rowTerminator);
 
-    void CriarTabelaTemporaria(
-        string nomeTabela,
-        List<(string Nome, int Tamanho)> campos
-    );
+    void CriarTabelaTemporaria(string nomeTabela,List<(string Nome, int Tamanho)> campos);
 
     List<string> ObterLayoutAtivo(string numBov);
 
