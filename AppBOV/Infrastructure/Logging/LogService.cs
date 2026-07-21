@@ -26,7 +26,7 @@ namespace AppBOV.Infrastructure.Logging
             }
             catch
             {
-                // continua silencioso por enquanto (ok na sua fase)
+                // continua silencioso por enquanto
             }
         }
     }
