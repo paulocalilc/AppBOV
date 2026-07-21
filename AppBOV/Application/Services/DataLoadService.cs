@@ -55,7 +55,6 @@ public class DataLoadService : IDataLoadService
 
         var layoutBanco = _repository.ObterLayoutAtivo(numBov);
 
-        // ✅ primeiro cadastro
         if (!layoutBanco.Any())
         {
             _repository.InserirNovoLayout(numBov, camposArquivo);
@@ -67,7 +66,6 @@ public class DataLoadService : IDataLoadService
         if (!inconsistencias.Any())
             return true;
 
-        // ✅ atualização de layout
         _repository.DesativarLayout(numBov);
         _repository.InserirNovoLayout(numBov, camposArquivo);
 
@@ -113,23 +111,16 @@ public class DataLoadService : IDataLoadService
 
         _repository.CriarTabelaTemporaria(nomeTabela, campos);
 
-        _log.Gravar("INFORMAÇÃO",
-            $"Tabela temporária criada: {nomeTabela}",
-            "");
+        _log.Gravar("INFORMAÇÃO",$"Tabela temporária criada: {nomeTabela}","");
     }
 
     private bool ExecutarBulk(string arquivo, string tabelaTemp, string numBov)
     {
         try
         {
-
-
-            // ✅ valida conteúdo (evita só cabeçalho)
             if (!ArquivoTemConteudo(arquivo))
             {
-                _log.Gravar("INFORMAÇÃO",
-                    $"Arquivo {arquivo} está vazio (somente cabeçalho)",
-                    "");
+                _log.Gravar("INFORMAÇÃO",$"Arquivo {arquivo} está vazio (somente cabeçalho)","");
 
                 _repository.AtualizarStatusDownload(numBov, "em branco");
                 Console.WriteLine($"Arquivo da BOV {numBov} está em branco.");
@@ -137,25 +128,19 @@ public class DataLoadService : IDataLoadService
                 return false;
             }
 
-            // ✅ tenta com LF
             if (_repository.ExecutarBulkInsert(arquivo, tabelaTemp, "0x0a"))
                 return true;
 
-            // ✅ fallback CR
             if (_repository.ExecutarBulkInsert(arquivo, tabelaTemp, "0x0d"))
                 return true;
 
-            _log.Gravar("ERRO",
-                "Falha no bulk insert com ambos ROWTERMINATOR",
-                arquivo);
+            _log.Gravar("ERRO","Falha no bulk insert com ambos ROWTERMINATOR",arquivo);
 
             return false;
         }
         catch (Exception ex)
         {
-            _log.Gravar("ERRO",
-                "Erro ao executar bulk insert",
-                ex.ToString());
+            _log.Gravar("ERRO","Erro ao executar bulk insert",ex.ToString());
 
             return false;
         }
