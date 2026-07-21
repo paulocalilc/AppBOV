@@ -862,8 +862,6 @@ namespace AppBOV.Application.Services
             //Verifica se encontrou algum erro
             if (contErros > 0)
             {
-                //Gera Log
-                //_log.Gravar("ERRO", string.Concat("Foram detectados ", contErros, " erros"), inconsistenciasPreenchimento);
                 throw new ArgumentException(string.Concat("Foram detectados ", contErros, " erros.", Environment.NewLine, Environment.NewLine, inconsistenciasPreenchimento));
             }
             else
