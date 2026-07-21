@@ -10,7 +10,6 @@ namespace AppBOV
         {
             try
             {
-                // ✅ PRIMEIRO: inicializa ambiente
                 new InicializacaoService(Environment.GetCommandLineArgs());
 
                 InicializacaoService.CriarPastasAuxiliares();
@@ -18,12 +17,10 @@ namespace AppBOV
 
                 var services = new ServiceCollection();
 
-                // ✅ DEPOIS: registra serviços (já com config pronta)
                 services.AddAppServices();
 
                 var provider = services.BuildServiceProvider();
 
-                // ✅ executa pipeline
                 var processador = provider.GetRequiredService<ProcessadorBov>();
 
                 processador.Processar();
@@ -42,10 +39,7 @@ namespace AppBOV
             {
                 var linha = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss} | {tipo} | {mensagem} | {detalhe}{Environment.NewLine}";
 
-                File.AppendAllText(
-                    @"C:\\Logs\\AppBov.log",
-                    linha
-                );
+                File.AppendAllText(@"C:\\Logs\\AppBov.log",linha);
             }
             catch
             {
