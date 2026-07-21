@@ -108,15 +108,11 @@ namespace AppBOV.Infrastructure.Repositories
 
             objNVT.Navigate().GoToUrl("http://PORTAL_DOS_RELATORIOS/RELATORIOS.aspx");
 
-            var campo = wait.Until(
-                SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("txtNumero2"))
-            );
+            var campo = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("txtNumero2")));
 
             campo.SendKeys(numBov);
 
-            var btnConsultar = wait.Until(
-                SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.Id("btnConsultar"))
-            );
+            var btnConsultar = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.Id("btnConsultar")));
 
             btnConsultar.Click();
         }
@@ -125,9 +121,7 @@ namespace AppBOV.Infrastructure.Repositories
         {
             var wait = new WebDriverWait(objNVT, TimeSpan.FromSeconds(60));
 
-            var btnAbrirDisponivel = wait.Until(
-                SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.Id("menuBtnRelatorioAbrir"))
-            );
+            var btnAbrirDisponivel = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.Id("menuBtnRelatorioAbrir")));
 
             if (!btnAbrirDisponivel.Enabled)
             {
@@ -135,9 +129,7 @@ namespace AppBOV.Infrastructure.Repositories
 
                 if (btnAcesso.Enabled)
                 {
-                    _log.Gravar("ERRO",
-                        $"Sem acesso ao relatório {numBov}",
-                        "");
+                    _log.Gravar("ERRO",$"Sem acesso ao relatório {numBov}","");
 
                     Console.WriteLine($"Sem acesso a BOV {numBov}.");
                     return false;
@@ -157,9 +149,7 @@ namespace AppBOV.Infrastructure.Repositories
         {
             var wait = new WebDriverWait(objNVT, TimeSpan.FromSeconds(30));
 
-            var txtDataDe = wait.Until(
-                SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("txtDataDe"))
-            );
+            var txtDataDe = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("txtDataDe")));
 
             txtDataDe.Clear();
             txtDataDe.SendKeys(dataInicio);
@@ -175,11 +165,7 @@ namespace AppBOV.Infrastructure.Repositories
 
             try
             {
-                var checkboxWrapper = wait.Until(
-                    SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(
-                        By.XPath("//input[@id='Ckbemail']/parent::div")
-                    )
-                );
+                var checkboxWrapper = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.XPath("//input[@id='Ckbemail']/parent::div")));
 
                 checkboxWrapper.Click();
 
@@ -195,9 +181,7 @@ namespace AppBOV.Infrastructure.Repositories
         {
             var wait = new WebDriverWait(objNVT, TimeSpan.FromSeconds(30));
 
-            var btnGerar = wait.Until(
-                SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.Id("btnGerarRelatorio"))
-            );
+            var btnGerar = wait.Until(eleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.Id("btnGerarRelatorio")));
 
             btnGerar.Click();
         }
@@ -208,21 +192,15 @@ namespace AppBOV.Infrastructure.Repositories
 
             objNVT.Navigate().GoToUrl("http://PORTAL_DOS_RELATORIOS/RELATORIOS.aspx");
 
-            var campo = wait.Until(
-                SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("txtNumero2"))
-            );
+            var campo = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("txtNumero2")));
 
             campo.SendKeys(numBov);
 
-            var btnConsultar = wait.Until(
-                SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.Id("btnConsultar"))
-            );
+            var btnConsultar = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.Id("btnConsultar")));
 
             btnConsultar.Click();
 
-            var btnAbrir = wait.Until(
-                SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.Id("menuBtnRelatorioAbrir"))
-            );
+            var btnAbrir = wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeClickable(By.Id("menuBtnRelatorioAbrir")));
 
             btnAbrir.Click();
 
