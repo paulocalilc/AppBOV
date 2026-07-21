@@ -76,8 +76,6 @@ namespace AppBOV.Application.Orchestrators
             if (DateTime.Now < DateTime.Parse(_config.HoraExecucaoDownload))
                 return false;
 
-            //var repository = new BovRepository(_config);
-
             if (!_navegador.IniciaNavegador())
             {
                 _log.Gravar("ERRO", "Navegador não foi iniciado");
@@ -351,7 +349,7 @@ namespace AppBOV.Application.Orchestrators
                 _navegador.AcessarTelaRelatorio(numBov);
 
                 if (!_navegador.AbrirRelatorio(numBov))
-                    return true; // já tratou "sem acesso"
+                    return true;
 
                 _navegador.PreencherDatas(dataInicio, dataFim);
 
@@ -363,9 +361,7 @@ namespace AppBOV.Application.Orchestrators
             }
             catch (Exception ex)
             {
-                _log.Gravar("ERRO",
-                    "Erro ao programar BOV",
-                    ex.ToString());
+                _log.Gravar("ERRO","Erro ao programar BOV",ex.ToString());
 
                 return false;
             }
