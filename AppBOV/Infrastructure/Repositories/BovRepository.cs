@@ -83,7 +83,6 @@ public class BovRepository : IBovRepository
     }
 
     //"Verificar status da conexão"
-    //Responsável por verificar o status da conexão
     public string CheckStatusConn()
     {
         //Verifica se existe alguma conexão
@@ -107,7 +106,6 @@ public class BovRepository : IBovRepository
     }
 
     //"Executar Query"
-    //Responsável por executar querys diretamente do código
     public SqlDataReader ExecuteQuery(string query)
     {
         //Executa querys passadas por parametro ao método
@@ -455,8 +453,7 @@ public class BovRepository : IBovRepository
     string nomeTabela,
     List<(string Nome, int Tamanho)> campos)
     {
-        var colunas = string.Join(",",
-            campos.Select(c => $"[{c.Nome}] VARCHAR({c.Tamanho}) NULL"));
+        var colunas = string.Join(",",campos.Select(c => $"[{c.Nome}] VARCHAR({c.Tamanho}) NULL"));
 
         var sql = $@"
         IF OBJECT_ID(N'{_config.NomeBd}.{_config.NomeSchema}.{nomeTabela}', N'U') IS NOT NULL
