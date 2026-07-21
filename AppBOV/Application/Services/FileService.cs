@@ -71,7 +71,7 @@ public class FileService : IFileService
         }
         catch
         {
-            // mantém comportamento silencioso do legado
+            // mantém comportamento silencioso
         }
     }
 
