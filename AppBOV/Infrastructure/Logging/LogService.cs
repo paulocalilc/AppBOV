@@ -14,7 +14,6 @@ namespace AppBOV.Infrastructure.Logging
                 var caminho = _caminhoLog;
                 var pasta = Path.GetDirectoryName(caminho);
 
-                // ✅ garante que a pasta existe
                 if (!Directory.Exists(pasta))
                 {
                     Directory.CreateDirectory(pasta);
