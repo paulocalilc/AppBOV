@@ -6,6 +6,5 @@ namespace AppBOV.Application.Interfaces
     {
         void Processar(string caminhoZip, string numBov, string idArquivo, string tabela, string procedure);
 
-
     }
 }
