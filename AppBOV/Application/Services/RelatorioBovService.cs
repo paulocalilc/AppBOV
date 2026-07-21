@@ -25,8 +25,7 @@ namespace AppBOV.Application.Services
             var doc = new HtmlDocument();
             doc.LoadHtml(pageSource);
 
-            var node = doc.DocumentNode
-                .SelectSingleNode("//table[@id='datatable-buttons_disponiveis']");
+            var node = doc.DocumentNode.SelectSingleNode("//table[@id='datatable-buttons_disponiveis']");
 
             return node?.InnerHtml ?? string.Empty;
         }
@@ -59,7 +58,6 @@ namespace AppBOV.Application.Services
 
             var linhasTratadas = new List<string>();
 
-            // pega todas as linhas da tabela
             var linhas = doc.DocumentNode.SelectNodes("//tr");
 
             if (linhas == null)
