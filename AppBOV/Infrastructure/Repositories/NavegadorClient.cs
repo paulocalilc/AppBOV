@@ -35,7 +35,7 @@ namespace AppBOV.Infrastructure.Repositories
                 wait = new WebDriverWait(objNVT, TimeSpan.FromSeconds(10));
                 acao = new Actions(objNVT);
 
-                objNVT.Navigate().GoToUrl("http://portalbi.telemar/");
+                objNVT.Navigate().GoToUrl("http://PORTAL_DE_RELATORIOS/");
 
                 _log.Gravar("INFORMAÇÃO", "Navegador iniciado com sucesso");
 
@@ -106,7 +106,7 @@ namespace AppBOV.Infrastructure.Repositories
         {
             var wait = new WebDriverWait(objNVT, TimeSpan.FromSeconds(60));
 
-            objNVT.Navigate().GoToUrl("http://portalbi.telemar/ListaRelatorios.aspx");
+            objNVT.Navigate().GoToUrl("http://PORTAL_DOS_RELATORIOS/RELATORIOS.aspx");
 
             var campo = wait.Until(
                 SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("txtNumero2"))
@@ -206,7 +206,7 @@ namespace AppBOV.Infrastructure.Repositories
         {
             var wait = new WebDriverWait(objNVT, TimeSpan.FromSeconds(60));
 
-            objNVT.Navigate().GoToUrl("http://portalbi.telemar/ListaRelatorios.aspx");
+            objNVT.Navigate().GoToUrl("http://PORTAL_DOS_RELATORIOS/RELATORIOS.aspx");
 
             var campo = wait.Until(
                 SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(By.Id("txtNumero2"))
